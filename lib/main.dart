@@ -1,7 +1,10 @@
 
 import 'package:chat_app/controller/conversation_controller.dart';
 import 'package:chat_app/screens/getstarted/get_started.dart';
+import 'package:chat_app/screens/home/details_page.dart';
+import 'package:chat_app/screens/home/home_page.dart';
 import 'package:chat_app/shared/exports.dart';
+import 'package:chat_app/shared/nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -27,12 +30,12 @@ class MyApp extends StatelessWidget {
         Get.put(ConversationController());
       }),
       home: const GetStarted(),
-    //   initialRoute: '/',
-
-    //  getPages: [
-    //     GetPage(name: '/', page: () => HomePage()),
-    //     GetPage(name: '/details', page: () => DetailsPage()),
-    //   ],
+      initialRoute: '/',
+     getPages: [
+        GetPage(name: '/', page: () =>  const NavSection()),
+        GetPage(name: '/home', page: () => HomePage()),
+        GetPage(name: '/home/details', page: () => DetailsPage()),
+      ],
     );
   }
 }

@@ -29,14 +29,13 @@ class HomePage extends StatelessWidget {
               ),
               color: Palette.background,
             ),
-            height: height * 0.68,
+            height: height * 0.555,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 6),
               child: Column(
                 children: [
                   const ChatTop(),
-                  SizedBox(
-                    height: height * 0.55,
+                  Expanded(
                     child: Obx(
                       () {
                         if (conversationController.isLoading.value) {
@@ -56,7 +55,7 @@ class HomePage extends StatelessWidget {
                                 chatImage: Images.imageBlank,
                                 chatTitle: conversation.topic ?? '',
                                 chatPressed: () {
-                                  Get.toNamed('/details', arguments: conversation.id);
+                                  Get.toNamed('/home/details', arguments: conversation.id);
                                 },
                                 chatTime: DateTime.fromMillisecondsSinceEpoch(
                                     conversation.modifiedAt ?? 0),
