@@ -1,6 +1,6 @@
 
 import 'package:chat_app/controller/conversation_controller.dart';
-import 'package:chat_app/screens/details_page.dart';
+import 'package:chat_app/screens/getstarted/get_started.dart';
 import 'package:chat_app/shared/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -26,12 +26,13 @@ class MyApp extends StatelessWidget {
       initialBinding: BindingsBuilder(() {
         Get.put(ConversationController());
       }),
-      initialRoute: '/',
+      home: const GetStarted(),
+    //   initialRoute: '/',
 
-     getPages: [
-        GetPage(name: '/', page: () => HomePage()),
-        GetPage(name: '/details', page: () => DetailsPage()),
-      ],
+    //  getPages: [
+    //     GetPage(name: '/', page: () => HomePage()),
+    //     GetPage(name: '/details', page: () => DetailsPage()),
+    //   ],
     );
   }
 }

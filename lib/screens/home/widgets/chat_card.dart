@@ -37,17 +37,6 @@ class ChatCard extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    final driverImage = chatImage.isNotEmpty
-        ? Image.asset(chatImage)
-        : Container(
-            height: height * 0.065,
-            width: width * 0.12,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(111, 158, 158, 158),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          );
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: InkWell(
@@ -56,14 +45,18 @@ class ChatCard extends StatelessWidget {
           height: height * 0.10,
           color: Colors.transparent,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(width: width * 0.025),
-                driverImage,
-                SizedBox(width: width * 0.05),
+                const CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://cdn.pixabay.com/photo/2022/01/17/22/20/subtract-6945896_960_720.png'),
+                  radius: 20,
+                ),
+                SizedBox(width: width * 0.03),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,19 +66,20 @@ class ChatCard extends StatelessWidget {
                         chatTitle,
                         style: const TextStyle(
                           fontWeight: FontWeight.w700,
-                          fontSize: 14,
+                          fontSize: 14.5,
                         ),
                       ),
                       Text(
                         chatDesc,
                         style: const TextStyle(
-                            fontSize: 10,
+                            fontSize: 11,
                             fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(120, 2, 0, 3)),
+                            color: Color.fromARGB(169, 0, 0, 0)),
                       ),
                     ],
                   ),
                 ),
+                SizedBox(width: width * 0.05),
                 Text(
                   _formatChatTime(chatTime),
                   style: const TextStyle(
@@ -93,7 +87,7 @@ class ChatCard extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       color: Color.fromARGB(120, 2, 0, 3)),
                 ),
-                SizedBox(width: width * 0.05),
+                
               ],
             ),
           ),

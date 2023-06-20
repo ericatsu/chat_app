@@ -200,6 +200,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  status_view:
+    dependency: "direct main"
+    description:
+      name: status_view
+      sha256: aff3397295cf23d51c2206e56da320e8095ea0340f31ea2395c8807186dac1ba
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   stream_channel:
     dependency: transitive
     description:

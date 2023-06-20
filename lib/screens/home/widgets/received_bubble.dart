@@ -1,4 +1,4 @@
-import 'package:chat_app/screens/widgets/sent_bubble.dart';
+import 'package:chat_app/screens/home/widgets/sent_bubble.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
