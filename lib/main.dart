@@ -1,4 +1,6 @@
 
+import 'package:chat_app/controller/conversation_controller.dart';
+import 'package:chat_app/screens/details_page.dart';
 import 'package:chat_app/shared/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -21,7 +23,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:   HomePage(),
+      initialBinding: BindingsBuilder(() {
+        Get.put(ConversationController());
+      }),
+      initialRoute: '/',
+
+     getPages: [
+        GetPage(name: '/', page: () => HomePage()),
+        GetPage(name: '/details', page: () => DetailsPage()),
+      ],
     );
   }
 }

@@ -49,13 +49,8 @@ class HomePage extends StatelessWidget {
                           chatImage: Images.imageBlank,
                           chatTitle: conversation.topic ?? '',
                           chatPressed: () {
-                            Get.to(
-                              () => const ConvoScreen(
-                                chatDataImage: Images.imageBlank,
-                                chatDataStatus: 'Online',
-                                chatDataTitle:  'Sender',
-                              ),
-                            );
+                            Get.toNamed('/details', arguments: conversation.id);
+                            
                           },
                           chatTime: DateTime.fromMillisecondsSinceEpoch(
                               conversation.modifiedAt ?? 0),
