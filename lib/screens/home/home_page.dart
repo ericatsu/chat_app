@@ -49,13 +49,16 @@ class HomePage extends StatelessWidget {
                             itemBuilder: (ctx, index) {
                               final conversation =
                                   conversationController.conversations[index];
-                              
                               return ChatCard(
                                 chatDesc: conversation.lastMessage ?? '',
                                 chatImage: Images.imageBlank,
                                 chatTitle: conversation.topic ?? '',
                                 chatPressed: () {
-                                  Get.toNamed('/home/details', arguments: conversation.id);
+                                  Get.toNamed('/home/details', arguments: {
+                                    'chatId': conversation.id,
+                                    'topic' : conversation.topic,
+                                    'members': conversation.members
+                                  });
                                 },
                                 chatTime: DateTime.fromMillisecondsSinceEpoch(
                                     conversation.modifiedAt ?? 0),
